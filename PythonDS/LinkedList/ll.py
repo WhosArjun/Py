@@ -78,3 +78,21 @@ class LinkedList:
                 while last.next: #While the next value is not None(null)
                     if last.next.value == value: #If the next value is equal to the value parameter
                         last.next = last.next.next  #Update the next value to the next value of the next value
+
+    #The pop function of a linked list removes the node at the specified index from the linked list. It first checks if the linked list is empty (i.e., if the head is None). If it is empty, it raises an IndexError indicating that the index is out of bounds. If the linked list is not empty, it traverses the list to find the node at the specified index. If it reaches the end of the list before reaching the specified index, it raises an IndexError. Once it finds the node at the specified index, it updates the next pointer of the previous node to skip over the node being removed, effectively removing it from the linked list.
+    #Time complexity : O(n) because we may need to traverse the entire list linearly to find the node at the specified index.
+    def pop(self, index):
+        if self.head is None:
+            raise IndexError("Index out of bounds")
+        else:
+            last = self.head
+            for i in range(index - 1):
+                if last.next is None:
+                    raise IndexError("Index out of bounds")
+                last = last.next
+
+            if last.next is None:
+                raise IndexError("Index out of bounds")
+            else :
+                last.next = last.next.next
+            
