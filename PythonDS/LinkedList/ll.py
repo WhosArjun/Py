@@ -66,3 +66,15 @@ class LinkedList:
             i+=1 #Increment the counter
             last = last.next #Increment the current value to the next not-None value
         return i #Return the increment length
+    
+    # Remove the first occurrence of a node with the given value from the linked list
+    # Time complexity is O(n) because we may need to traverse the entire list linearly to find the node with the specified value.
+    def delete(self, value):
+        last = self.head #Initialize last to the head of the linked list
+        while last is not None: #While the current element is not None(null)
+            if last.value == value: #If the current value is equal to the value parameter
+                self.head = last.next #Update the head of the linked list to the next value
+            else:  
+                while last.next: #While the next value is not None(null)
+                    if last.next.value == value: #If the next value is equal to the value parameter
+                        last.next = last.next.next  #Update the next value to the next value of the next value
