@@ -95,4 +95,17 @@ class LinkedList:
                 raise IndexError("Index out of bounds")
             else :
                 last.next = last.next.next
+
+    #The get function of a linked list retrieves the value of the node at the specified index in the linked list. It first checks if the linked list is empty (i.e., if the head is None). If it is empty, it raises an IndexError indicating that the index is out of bounds. If the linked list is not empty, it traverses the list to find the node at the specified index. If it reaches the end of the list before reaching the specified index, it raises an IndexError. Once it finds the node at the specified index, it returns its value.
+    #Time complexity : O(n) because we may need to traverse the entire list linearly to find the node at the specified index.
+    def get(self, index):
+        if self.head is None:
+            raise IndexError("Index out of bounds")
+        else:
+            last = self.head #Set the index to the first head of the linked list and the first value of the linked list
+            for i in range(index): #Looking through all the index's of the linked list, linearly 
+                if last.next is None: #If the value is None 
+                    raise IndexError("Index out of bounds") #Raise the index out of bounds error 
+                last = last.next #Last is now the next value 
+            return last.value #Return the value of the index specified 
             
