@@ -56,3 +56,13 @@ class LinkedList:
                 return True #Return true
             last = last.next #Update the increment of the element in the linkedlist
         return False #Return false if the element isnt contained in the linked list
+    
+    #Return the length of the linked list
+    # Time complexity is O(n) because we need to traverse the entire list linearly to count the number of nodes.
+    def len(self):
+        i = 0  #Increment variable
+        last = self.head #Initialize last to the head of the linked list
+        while last is not None: #While the current element is not None(null)
+            i+=1 #Increment the counter
+            last = last.next #Increment the current value to the next not-None value
+        return i #Return the increment length
