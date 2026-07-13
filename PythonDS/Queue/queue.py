@@ -13,7 +13,15 @@ class Queue:
         return self.size
     
     def __repr__(self):
-        pass 
+         items = []
+         current_item = self.front
+
+         while current_item is not None:
+             items.appent(str(current_item.value))
+             current_item = current_item.next
+        
+         return ', '.join(items)
+    
 
     def enqueue(self, value):
         new_node = Node(value)
