@@ -25,4 +25,26 @@ class LinkedList:
         first_node.next = self.head
         self.head = first_node
     
+
+    # Insert a new node with the given value at the specified index in the linked list
+    # Time complexity is O(n) because we may need to traverse the entire list linearly to find the node at the specified index.
+    def insert(self, value, index):
+        if index == 0:
+            self.prepend(value)
+            return
+        else:
+            if self.head is None:
+                raise IndexError("Index out of bounds")
+            else:
+                last = self.head
+
+                for i in range(index - 1):
+                    if last.next is None:
+                        raise IndexError("Index out of bounds")
+                    last = last.next
+                
+                new_node = Node(value)
+                new_node.next = last.next
+                last.next = new_node
+
     
