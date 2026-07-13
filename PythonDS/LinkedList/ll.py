@@ -47,4 +47,12 @@ class LinkedList:
                 new_node.next = last.next
                 last.next = new_node
 
-    
+    # Remove the first occurrence of a node with the given value from the linked list
+    # Time complexity is O(n) because we may need to traverse the entire list linearly to find the node with the specified value.
+    def __contains__(self, value):
+        last = self.head  #Last contains the heading element
+        while last is not None: #While the current element is not None(null)
+            if last.value == value: #If the current value is equal to the value parameter
+                return True #Return true
+            last = last.next #Update the increment of the element in the linkedlist
+        return False #Return false if the element isnt contained in the linked list
