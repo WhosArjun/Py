@@ -18,3 +18,11 @@ class LinkedList:
                 last = last.next
             last.next = Node(value)
     
+    # Prepend a new node with the given value to the beginning of the linked list
+    # Time complexity is O(1) because we are adding the new node at the beginning
+    def prepend(self, value):
+        first_node = Node(value)
+        first_node.next = self.head
+        self.head = first_node
+    
+    
