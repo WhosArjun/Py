@@ -22,7 +22,7 @@ class Queue:
         
          return ', '.join(items)
     
-
+    #0(1) constant time
     def enqueue(self, value):
         new_node = Node(value)
         if self.rear is None:
@@ -33,7 +33,7 @@ class Queue:
 
         self.size += 1
      
-
+    #0(1) constant time
     def dequeue(self, value):
         if self.front is None:
             raise IndexError("Index out of bounds")
@@ -44,6 +44,7 @@ class Queue:
             self.rear = None 
         
         self.size -= 1
+        return dequeue_value
 
     def peek(self):
         if self.front is None:
@@ -52,3 +53,15 @@ class Queue:
 
     def is_empty(self):
         return self.front is None 
+    
+if __name__ == '__main__':
+    queue = Queue()
+
+    queue.enqueue(50)
+    queue.enqueue(40)
+
+    print(queue.dequeue())
+
+    print(queue)
+
+    print(len(queue))
