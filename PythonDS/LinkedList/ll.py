@@ -108,4 +108,36 @@ class LinkedList:
                     raise IndexError("Index out of bounds") #Raise the index out of bounds error 
                 last = last.next #Last is now the next value 
             return last.value #Return the value of the index specified 
-            
+        
+    def __repr__(self):
+        if self.head is None:
+            raise IndexError("Index out of bounds")
+        else:
+            last = self.head
+            return_string = f"[{last.value}"
+
+            while last.next is not None:
+                last = last.next
+                return_string += f", {last.value}"
+        
+        return_string += "]"
+
+        return return_string
+
+if __name__ == "__main__":
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    print(ll)  # Output: [1, 2, 3]
+    ll.prepend(0)
+    print(ll)  # Output: [0, 1, 2, 3]
+    ll.insert(1.5, 2)
+    print(ll)  # Output: [0, 1, 1.5, 2, 3]
+    print(ll.len())  # Output: 5
+    print(2 in ll)  # Output: True
+    ll.delete(1.5)
+    print(ll)  # Output: [0, 1, 2, 3]
+    ll.pop(1)
+    print(ll)  # Output: [0, 2, 3]
+    print(ll.get(1))  # Output: 2
